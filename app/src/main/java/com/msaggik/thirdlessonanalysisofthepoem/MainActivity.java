@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
 
     // поля
@@ -27,17 +29,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         // привязка разметки к полям
         output = findViewById(R.id.output);
 
         // конвертирование строки в массив и его сортировка
         poemArray = stringToArray(poem);
+        Arrays.sort(poemArray);
 
         // вывод проанализированных данных на экран смартфона
-        output.setText(maxWord(poemArray));
-        output.append(minWord(poemArray));
-        output.append(numberOfLetters(poemArray));
+        output.setText(Arrays.toString(poemArray));
     }
 
     // метод поиска самого длинного слова
@@ -89,11 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     // метод конвертирования строки в массив
     private String[] stringToArray(String text) {
-
-        String textMod = text.replaceAll("[^А-Яа-я]", " ").trim(); // замена всех символов кроме букв на пробелы и удаление начальных и конечных пробелов
-
-        String[] textArray = textMod.split("\\s+"); // деление строки по всем пробелам (от 1 до большего количества пробелов)
-
-        return textArray;
+        String textMod = text.replaceAll("[^А-Яа-яёЁ]", " ").trim();
+        return textMod.split("\\s+");
     }
 }

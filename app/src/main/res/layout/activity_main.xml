@@ -34,21 +34,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_one" />
 
-    <TextView
-        android:id="@+id/output"
+    <ScrollView
         android:layout_width="350dp"
-        android:layout_height="140dp"
-        android:padding="10dp"
-        android:gravity="top"
-        android:hint="Анализ стихотворения"
-        android:textSize="17sp"
-        android:textStyle="italic"
-        android:textColor="#177C3A"
-        android:textColorHint="#4C9063"
-        android:background="#E6EFE9"
+        android:layout_height="530dp"
         android:layout_marginTop="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_two"/>
+        app:layout_constraintTop_toBottomOf="@+id/header_two">
+
+        <TextView
+            android:id="@+id/output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="top"
+            android:hint="Анализ стихотворения"
+            android:textSize="17sp"
+            android:textStyle="italic"
+            android:textColor="#177C3A"
+            android:textColorHint="#4C9063"
+            android:background="#E6EFE9" />
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
